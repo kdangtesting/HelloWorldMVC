@@ -8,13 +8,14 @@ after_success:
 - chmod a+x success.sh
 - "./success.sh"
 - docker --version
-- curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"  | tar -zx
+- curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"  |
+  tar -zx
 - "./cf --version"
 - "./cf install-plugin -f https://static-ice.ng.bluemix.net/ibm-containers-linux_x64"
 - "./cf plugins"
-- "./cf login -a https://api.ng.bluemix.net -u kdang@ca.ibm.com -p PW"
+- "./cf login -a https://api.ng.bluemix.net -u kdang@ca.ibm.com -p secretpw"
 - "./cf ic login"
 - "./cf ic images"
 env:
   global:
-    secure: "Iziial9E0VcC+7PT1ojzqP3BV4YlTjD+44K/eoxw/eTxo3PymtqqDxvOms6IY/MObzXO/SRhphPtzWpHn0Vjfm0XjpYTnK+FFr/yIc2WMHLqvIyAbbZgx9pl0Lv4o/FUI6OEgUaD54VOpzAcNDMbLCmGCsqx9O70lw84NzjZ5tpOUICtC8qa//4id+7IlYYvlpWPl4+f+ZoVyM93fULm2mOjczcy2eUWg5lqZFDwxbU3GfefHpuk+aVGYTuYnNQ+3UImA6u/HIEuebKdqlC/AQ7Oi94WRJC7iysGZucgZVKCLqlgTUuY1dc1Yn7ZJoeZc6LkA4vc+VZ/yjhIiU7NYEp3mMADCY229Pz1w8IHEGW/kDzdArtiWLFq2+W+vL0cmln5xLTZxIvipUwkKOfyZ1lFM3QLynkra8lCgHu+rwLJlafb+KIlN26u0dU723iHyMTg3P48Ez0OXvo+46IS9fVis7cj/hhrunoZCfvIzVRURBYOChPW/cRVj7RPXotXNa/myw2xirRKfLDPXaYxrZQFhcAhKR2XSGk2GOHaZN29SzQVV7DrObg//a//pAOsFoh5LZZotTRMKa5I3Xf32z1N1d6dfrSFAai7vwRWX4Ai3R6MTI363PcCVEXuCVCf1OnH6A8l4wEbmDVCeU/RqVhrMCShscbenkINVKa5T2A="
+  - secure: ipe85VAs63uzykNHbrRxfplrwvX6E7P3Hxd3mvzaQqYBoG52EyEzGsgavNllcjQSp/Ts8m34Wa2zt4AUTpSShhO0hL5XKcASZicIOHN3LXBGEgaTVnr5KpAUjBDsWmWG5cYGy7xLF6jAi7fxri5kLIaUxXeUWWQxEYcyyAoNb1/8XrDRa9a43q3nZDEJkvvjieUfGIjImNIKha27c5BJmYdpHFuAb2w0HQ94I+KL+PC3gAhGvQ7/hb/geyZTxWqLTGQDNBtRqrm+R8T7vNBqKMdheFsXwy96qVste98VFGXKvd8B6Ir3N4UzxenW7OibyDJIPvII6mQGnaDiKaZaAx68XsIHVnYU1kU7ji67Oldck2Kp277QJ6ZrReueNQ/eWNiBnxJJ9u/LFFWVUKLsXfZJ0i34OTHuJQpRxeuu3GyAJnkIVKssgQFi+68emQ3tEyIvJ/sa1kdX0vu1QFDevVNdeotYBAehwzLfO360UlRFz/RlWOOMDO7hgYvlOGCV8Ay4+GoS3ImghyEf8FDCI2nAkCK/5eSmxcNGnKNuAD6B7JOc+pFPllWO73i3DBoy9OpPVvv/0zxu4yq9zTFxAawkkpeDPMP8itszs294Z8xVcwCrlWFIuPMdnY66kakOjJVrA7X0P/bsLMRZMYHhhEUg8Uyz0IJW6izytxEhIMY=
