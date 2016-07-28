@@ -1,6 +1,12 @@
+sudo: required
 language: java
 jdk: oraclejdk8
+services:
+ - docker
 script: mvn clean package
 after_success:
  - chmod a+x success.sh
  - ./success.sh
+ - docker --version
+ - curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx
+ - ./cf --version
