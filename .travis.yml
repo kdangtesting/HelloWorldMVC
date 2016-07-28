@@ -2,11 +2,19 @@ sudo: required
 language: java
 jdk: oraclejdk8
 services:
- - docker
+- docker
 script: mvn clean package
 after_success:
- - chmod a+x success.sh
- - ./success.sh
- - docker --version
- - curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx
- - ./cf --version
+- chmod a+x success.sh
+- "./success.sh"
+- docker --version
+- curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"  | tar -zx
+- "./cf --version"
+- "./cf install-plugin https://static-ice.ng.bluemix.net/ibm-containers-linux_x64"
+- "./cf plugins"
+- "./cf login -a https://api.ng.bluemix.net -u kdang@ca.ibm.com -p PW"
+- "./cf ic login"
+- "./cf ic images"
+env:
+  global:
+    secure: "Iziial9E0VcC+7PT1ojzqP3BV4YlTjD+44K/eoxw/eTxo3PymtqqDxvOms6IY/MObzXO/SRhphPtzWpHn0Vjfm0XjpYTnK+FFr/yIc2WMHLqvIyAbbZgx9pl0Lv4o/FUI6OEgUaD54VOpzAcNDMbLCmGCsqx9O70lw84NzjZ5tpOUICtC8qa//4id+7IlYYvlpWPl4+f+ZoVyM93fULm2mOjczcy2eUWg5lqZFDwxbU3GfefHpuk+aVGYTuYnNQ+3UImA6u/HIEuebKdqlC/AQ7Oi94WRJC7iysGZucgZVKCLqlgTUuY1dc1Yn7ZJoeZc6LkA4vc+VZ/yjhIiU7NYEp3mMADCY229Pz1w8IHEGW/kDzdArtiWLFq2+W+vL0cmln5xLTZxIvipUwkKOfyZ1lFM3QLynkra8lCgHu+rwLJlafb+KIlN26u0dU723iHyMTg3P48Ez0OXvo+46IS9fVis7cj/hhrunoZCfvIzVRURBYOChPW/cRVj7RPXotXNa/myw2xirRKfLDPXaYxrZQFhcAhKR2XSGk2GOHaZN29SzQVV7DrObg//a//pAOsFoh5LZZotTRMKa5I3Xf32z1N1d6dfrSFAai7vwRWX4Ai3R6MTI363PcCVEXuCVCf1OnH6A8l4wEbmDVCeU/RqVhrMCShscbenkINVKa5T2A="
