@@ -13,7 +13,7 @@ after_success:
 - "./cf --version"
 - "./cf install-plugin -f https://static-ice.ng.bluemix.net/ibm-containers-linux_x64"
 - "./cf plugins"
-- "./cf login -a https://api.ng.bluemix.net -u kdang@ca.ibm.com -p secretpw"
+- "./cf login -a https://api.ng.bluemix.net -u kdang@ca.ibm.com -p $(secretpw)"
 - "./cf ic login"
 - "./cf ic images"
 env:
