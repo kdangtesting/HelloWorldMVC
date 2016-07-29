@@ -16,6 +16,7 @@ after_success:
 - ./cf login -a https://api.ng.bluemix.net -u kdang@ca.ibm.com -p $secretpw
 - ./cf ic login
 - ./cf ic images
+- cd /home/travis/build/kdangtesting/HelloWorldMVC/target/
 - ls
 - ./cf ic build -t registry.ng.bluemix.net/ahhhh .
 - ./cf ic images
