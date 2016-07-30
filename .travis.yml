@@ -6,7 +6,7 @@ services:
 script: mvn clean package
 after_success:
 - chmod a+x Dockerfile
-- cp /home/travis/build/kdangtesting/HelloWorldMVC/target/HelloWorldMVC-0.0.1-SNAPSHOT.war .
+- cp /home/travis/build/kdangtesting/HelloWorldMVC/target/HelloWorldMVC-0.0.1-SNAPSHOT.war HelloWorldMVC.war
 - ls -l
 - curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"  |
   tar -zx
@@ -22,6 +22,7 @@ after_success:
 - docker push registry.ng.bluemix.net/ahhhh/tom_cat
 - cf ic images
 - cf ic ps
+- cf ic stop tom_cat
 - cf ic rm tom_cat
 - cf ic ps
 - cf ic run -p 8080:8080 --name tom_cat registry.ng.bluemix.net/ahhhh/tom_cat
