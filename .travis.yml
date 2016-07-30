@@ -22,9 +22,10 @@ after_success:
 - docker push registry.ng.bluemix.net/ahhhh/tom_cat
 - cf ic images
 - cf ic ps -a
-- cf ic rm -f tom_cat
+- cf ic stop tom_cat
+- cf ic rm tom_cat
 - cf ic ps -a
-- cf ic run -p 8080:8080 --name tom_cat registry.ng.bluemix.net/ahhhh/tom_cat
+- cf ic run -p 8080 --name tom_cat registry.ng.bluemix.net/ahhhh/tom_cat
 - cf ic ps
 - cf ic ip list
 - cf ic ip bind 169.44.121.219 tom_cat
