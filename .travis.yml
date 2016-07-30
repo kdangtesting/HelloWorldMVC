@@ -21,7 +21,7 @@ after_success:
 - docker tag tom_cat registry.ng.bluemix.net/ahhhh/tom_cat
 - docker push registry.ng.bluemix.net/ahhhh/tom_cat
 - cf ic images
-- cf ic ps
+- cf ic ps -a
 - cf ic rm -f tom_cat
 - cf ic ps
 - cf ic run -p 8080:8080 --name tom_cat registry.ng.bluemix.net/ahhhh/tom_cat
