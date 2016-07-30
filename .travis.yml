@@ -18,10 +18,9 @@ after_success:
 - cf ic login
 - cf ic images
 - docker build -t tom_cat .
-- docker run -d -p 8888:8080 tom_cat
-- docker ps
 - docker tag tom_cat registry.ng.bluemix.net/ahhhh
 - docker push registry.ng.bluemix.net/ahhhh
+- cf ic images
 - cf ic run --name tom_cat registry.ng.bluemix.net/ahhhh
 env:
   global:
