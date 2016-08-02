@@ -25,6 +25,7 @@ after_success:
 - cf ic rename tom_cat old_tom_cat
 - cf ic ps -a
 - cf ic stop old_tom_cat
+- cf ic ps -a
 - cf ic rm $(cf ic ps -a -q)
 - cf ic ps -a
 - cf ic run -p 8080 --name tom_cat registry.ng.bluemix.net/ahhhh/tom_cat
