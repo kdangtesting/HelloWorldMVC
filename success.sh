@@ -29,6 +29,6 @@ if [[ $TRAVIS_EVENT_TYPE == 'push' ]]; then
 		cf ic ip bind 169.44.121.195 tom_cat2
 	fi
 else
-	echo 'is it pull?'
+	echo 'is it pull?ada'
 	echo "$TRAVIS_PULL_REQUEST"
 fi
