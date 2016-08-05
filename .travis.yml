@@ -8,7 +8,6 @@ after_success:
 - chmod a+x Dockerfile success.sh
 - cp /home/travis/build/kdangtesting/HelloWorldMVC/target/HelloWorldMVC-0.0.1-SNAPSHOT.war HelloWorldMVC.war
 - ls -l
-- echo $email
 - ./success.sh
 env:
   global:
