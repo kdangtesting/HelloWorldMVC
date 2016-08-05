@@ -2,7 +2,7 @@
 
 if [[ $TRAVIS_EVENT_TYPE == 'push' ]]; then
 	if [[ $TRAVIS_BRANCH == 'master' ]]; then
-		echo 'ok to deploy'
+		echo "ok to deploy"
 		curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"  |   tar -zx
 		export PATH=$PATH:.
 		cf --version
@@ -25,8 +25,10 @@ if [[ $TRAVIS_EVENT_TYPE == 'push' ]]; then
 		cf ic rm -f old_tom_cat2
 		sleep 5
 		cf ic ps -a
+	else
+		echo 'push to non-master branch'
 	fi
 else
-	echo 'Is it a pull request?'
+	echo "Is it a pull request?"
 	echo "$TRAVIS_PULL_REQUEST"
 fi
