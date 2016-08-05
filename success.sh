@@ -17,18 +17,16 @@ if [[ $TRAVIS_EVENT_TYPE == 'push' ]]; then
 		cf ic images
 		cf ic ps -a
 		cf ic rename tom_cat2 old_tom_cat2
-		cf ic stop old_tom_cat2
-		cf ic ps -a
-		cf ic rm $(cf ic ps -a -q)
-		cf ic ps -a
 		cf ic run -p 8080 --name tom_cat2 registry.ng.bluemix.net/ahhhh/tom_cat2
-		cf ic ps
-		cf ic ip list
+		sleep 30
 		cf ic ip unbind 169.44.121.195 old_tom_cat2
 		cf ic inspect tom_cat2
 		cf ic ip bind 169.44.121.195 tom_cat2
+		cf ic ps -a
+		cf ic rm -f old_tom_cat
+		cf ic ps -a
 	fi
 else
-	echo 'is it pull?ada'
+	echo 'Is it a pull request?'
 	echo "$TRAVIS_PULL_REQUEST"
 fi
