@@ -19,11 +19,10 @@ if [[ $TRAVIS_EVENT_TYPE == 'push' ]]; then
 		cf ic rename tom_cat2 old_tom_cat2
 		cf ic run -p 8080 --name tom_cat2 registry.ng.bluemix.net/ahhhh/tom_cat2
 		sleep 30
-		cf ic ip unbind 169.44.121.195 old_tom_cat2
-		cf ic inspect tom_cat2
-		cf ic ip bind 169.44.121.195 tom_cat2
+		cf ic ip unbind 169.44.125.36 old_tom_cat2
+		cf ic ip bind 169.44.125.36 tom_cat2
 		cf ic ps -a
-		cf ic rm -f old_tom_cat
+		cf ic rm -f old_tom_cat2
 		cf ic ps -a
 	fi
 else
